@@ -13,13 +13,16 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  const closeMobileMenu = () => {
-    setMobileMenuOpen(false)
-  }
-
   const scrollToTop = (e: MouseEvent<HTMLAnchorElement>) => {
     e.preventDefault()
     window.scrollTo({ top: 0, behavior: "smooth" })
+  }
+
+  const scrollToCalculator = (e: MouseEvent<HTMLAnchorElement | HTMLButtonElement>) => {
+    e.preventDefault()
+    setMobileMenuOpen(false)
+    const el = document.getElementById("calculator")
+    if (el) el.scrollIntoView({ behavior: "smooth" })
   }
 
   return (
@@ -36,35 +39,12 @@ export function Header() {
           <img src="/images/hously-logo.svg" alt="Пространство" width={120} height={32} className="w-auto h-6" />
         </a>
 
-        <ul className="hidden md:flex items-center gap-10 text-sm tracking-wide">
-          {[
-            { label: "Главная", href: "#hero" },
-            { label: "Философия", href: "#about" },
-            { label: "Проекты", href: "#projects" },
-            { label: "Услуги", href: "#services" },
-            { label: "Вопросы", href: "#faq" },
-          ].map((item) => (
-            <li key={item.label}>
-              <a
-                href={item.href}
-                className="hover:text-[rgb(251,146,60)] transition-colors duration-300 relative after:absolute after:bottom-0 after:left-0 after:h-px after:w-0 hover:after:w-full after:bg-[rgb(251,146,60)] after:transition-all after:duration-300 text-white"
-              >
-                {item.label}
-              </a>
-            </li>
-          ))}
-        </ul>
-
         <a
-          href="#contact"
-          className={cn(
-            "hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300",
-            scrolled
-              ? "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white"
-              : "bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white",
-          )}
+          href="#calculator"
+          onClick={scrollToCalculator}
+          className="hidden md:inline-flex items-center gap-2 text-sm px-5 py-2.5 transition-all duration-300 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white"
         >
-          Связаться
+          Контакты
         </a>
 
         <button
@@ -89,36 +69,16 @@ export function Header() {
       <div
         className={cn(
           "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-          mobileMenuOpen ? "max-h-[600px] opacity-100 mt-8" : "max-h-0 opacity-0",
+          mobileMenuOpen ? "max-h-[200px] opacity-100 mt-8" : "max-h-0 opacity-0",
         )}
       >
-        <div className="container mx-auto px-6">
-          <ul className="flex flex-col gap-6 mb-8">
-            {[
-              { label: "Главная", href: "#hero" },
-              { label: "Философия", href: "#about" },
-              { label: "Проекты", href: "#projects" },
-              { label: "Услуги", href: "#services" },
-              { label: "Вопросы", href: "#faq" },
-            ].map((item) => (
-              <li key={item.label}>
-                <a
-                  href={item.href}
-                  className="hover:text-[rgb(251,146,60)] transition-colors duration-300 text-white text-4xl font-light block"
-                  onClick={closeMobileMenu}
-                >
-                  {item.label}
-                </a>
-              </li>
-            ))}
-          </ul>
-
+        <div className="container mx-auto px-6 pb-6">
           <a
-            href="#contact"
-            className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300 mb-4"
-            onClick={closeMobileMenu}
+            href="#calculator"
+            onClick={scrollToCalculator}
+            className="inline-flex items-center justify-center gap-2 text-sm px-5 py-2.5 bg-white text-foreground border border-foreground/20 hover:bg-foreground hover:text-white transition-all duration-300"
           >
-            Связаться
+            Контакты
           </a>
         </div>
       </div>

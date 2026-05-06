@@ -65,7 +65,7 @@ export function Calculator() {
   const outOfRange = area && !isNaN(areaNum) && (areaNum < minArea || areaNum > maxArea)
 
   return (
-    <section className="py-24 bg-background">
+    <section id="calculator" className="py-24 bg-background">
       <div className="container mx-auto px-6 md:px-12">
         <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">Стоимость</p>
         <h2 className="text-4xl md:text-5xl font-medium text-foreground mb-4 leading-tight">
