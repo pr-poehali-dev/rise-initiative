@@ -77,7 +77,7 @@ export function Calculator() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Open Space (2–3 этаж)
+              Open Space (2–3 этаж). Потолки 4,5м
             </button>
             <button
               onClick={() => { setRoomType("panoramic"); setArea("") }}
@@ -87,7 +87,7 @@ export function Calculator() {
                   : "text-muted-foreground hover:text-foreground"
               }`}
             >
-              Панорамный вход
+              Помещение с отдельным входом. Потолки 5м
             </button>
           </div>
 
