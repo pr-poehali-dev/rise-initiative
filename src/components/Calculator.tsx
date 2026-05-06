@@ -136,9 +136,28 @@ export function Calculator() {
                   <p className="text-3xl font-medium text-foreground">{formatPrice(pricePerM2)}</p>
                 </div>
               </div>
-              <p className="text-xs text-muted-foreground mt-6">
+              <p className="text-xs text-muted-foreground mt-6 mb-8">
                 Расчёт является предварительным. Точная стоимость уточняется при заключении договора.
               </p>
+              <div className="border-t border-border pt-8">
+                <p className="text-sm text-muted-foreground mb-5">Свяжитесь с нами, чтобы забронировать помещение:</p>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <a
+                    href="tel:+79872971733"
+                    className="flex items-center justify-center gap-2 bg-primary text-primary-foreground px-6 py-3 rounded-sm text-sm font-medium hover:opacity-90 transition-opacity"
+                  >
+                    +7 987 297 17 33
+                  </a>
+                  <a
+                    href="https://t.me/irafedosova"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-2 border border-border text-foreground px-6 py-3 rounded-sm text-sm font-medium hover:bg-muted transition-colors"
+                  >
+                    @irafedosova
+                  </a>
+                </div>
+              </div>
             </div>
           )}
 
