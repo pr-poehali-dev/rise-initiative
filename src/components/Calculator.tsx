@@ -149,12 +149,12 @@ export function Calculator() {
                     +7 987 297 17 33
                   </a>
                   <a
-                    href="https://t.me/irafedosova"
+                    href="https://t.me/mrsfedosova"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 border border-border text-foreground px-6 py-3 rounded-sm text-sm font-medium hover:bg-muted transition-colors"
                   >
-                    @irafedosova
+                    @mrsfedosova
                   </a>
                 </div>
               </div>
