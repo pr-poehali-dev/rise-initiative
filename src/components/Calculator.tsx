@@ -67,16 +67,6 @@ export function Calculator() {
   return (
     <section id="calculator" className="py-24 bg-background">
       <div className="container mx-auto px-6 md:px-12">
-        <p className="text-sm tracking-[0.3em] uppercase text-muted-foreground mb-4">Стоимость</p>
-        <h2 className="text-4xl md:text-5xl font-medium text-foreground mb-4 leading-tight">
-          Калькулятор
-          <br />
-          <span className="text-accent">аренды помещения</span>
-        </h2>
-        <p className="text-muted-foreground mb-12 max-w-xl">
-          Укажите тип и площадь помещения — мы рассчитаем стоимость на основе актуального прайса.
-        </p>
-
         <div className="max-w-2xl">
           <div className="flex gap-2 mb-8 p-1 bg-muted rounded-sm w-fit">
             <button
