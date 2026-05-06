@@ -96,15 +96,16 @@ export function Calculator() {
   const selectedOffice = officeData.find(d => d.area === selectedOfficeArea)
 
   const tabClass = (type: RoomType) =>
-    `px-5 py-2.5 text-sm font-medium transition-all rounded-sm ${
-      roomType === type ? "bg-primary text-primary-foreground" : "text-muted-foreground hover:text-foreground"
+    `w-full px-5 py-5 text-sm font-medium transition-all rounded-sm text-center border ${
+      roomType === type
+        ? "bg-primary text-primary-foreground border-primary"
+        : "bg-muted text-muted-foreground border-border hover:text-foreground hover:border-foreground"
     }`
 
   return (
     <section id="calculator" className="py-24 bg-background">
       <div className="container mx-auto px-6 md:px-12">
-        <div className="max-w-2xl">
-          <div className="flex flex-wrap gap-2 mb-8 p-1 bg-muted rounded-sm w-fit">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mb-8 w-full">
             <button onClick={() => { setRoomType("openspace"); setArea("") }} className={tabClass("openspace")}>
               Open Space (2–3 этаж). Потолки 4,5м
             </button>
@@ -115,6 +116,7 @@ export function Calculator() {
               Офисный блок. Потолки 3м
             </button>
           </div>
+        <div className="max-w-2xl">
 
           {roomType !== "office" && (
             <>
