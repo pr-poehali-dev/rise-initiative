@@ -144,15 +144,15 @@ export function Calculator() {
               </div>
 
               {price && pricePerM2 && (
-                <div className="border border-border rounded-sm p-8 bg-card">
-                  <div className="grid grid-cols-2 gap-8">
+                <div className="border border-border rounded-sm p-6 sm:p-8 bg-card">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
                     <div>
                       <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Итого</p>
-                      <p className="text-3xl font-medium text-foreground">{formatPrice(price)}</p>
+                      <p className="text-2xl sm:text-3xl font-medium text-foreground">{formatPrice(price)}</p>
                     </div>
                     <div>
                       <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Цена за м²</p>
-                      <p className="text-3xl font-medium text-foreground">{formatPrice(pricePerM2)}</p>
+                      <p className="text-2xl sm:text-3xl font-medium text-foreground">{formatPrice(pricePerM2)}</p>
                     </div>
                   </div>
                   <p className="text-xs text-muted-foreground mt-6 mb-8">
@@ -189,15 +189,15 @@ export function Calculator() {
               </div>
 
               {selectedOffice && (
-                <div className="border border-border rounded-sm p-8 bg-card">
-                  <div className="grid grid-cols-2 gap-8">
+                <div className="border border-border rounded-sm p-6 sm:p-8 bg-card">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8">
                     <div>
                       <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Итого</p>
-                      <p className="text-3xl font-medium text-foreground">{formatPrice(selectedOffice.price)}</p>
+                      <p className="text-2xl sm:text-3xl font-medium text-foreground">{formatPrice(selectedOffice.price)}</p>
                     </div>
                     <div>
                       <p className="text-xs tracking-[0.2em] uppercase text-muted-foreground mb-2">Цена за м²</p>
-                      <p className="text-3xl font-medium text-foreground">{formatPrice(Math.round(selectedOffice.price / selectedOffice.area))}</p>
+                      <p className="text-2xl sm:text-3xl font-medium text-foreground">{formatPrice(Math.round(selectedOffice.price / selectedOffice.area))}</p>
                     </div>
                   </div>
                   <p className="text-xs text-muted-foreground mt-6 mb-8">
