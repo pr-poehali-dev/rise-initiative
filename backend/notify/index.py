@@ -1,9 +1,7 @@
 import json
 import os
-import smtplib
+import urllib.request
 import psycopg2
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
 
 SCHEMA = "t_p178262_rise_initiative"
 
@@ -11,15 +9,9 @@ def get_conn():
     return psycopg2.connect(os.environ["DATABASE_URL"])
 
 def send_email(to_email: str, to_name: str, task_title: str, assigned_by: str, due_date: str):
-    gmail_user = os.environ.get("GMAIL_USER", "")
-    gmail_pass = os.environ.get("GMAIL_APP_PASSWORD", "")
-    if not gmail_user or not gmail_pass:
+    api_key = os.environ.get("RESEND_API_KEY", "")
+    if not api_key:
         return False
-
-    msg = MIMEMultipart("alternative")
-    msg["Subject"] = f"Вам назначена задача: {task_title}"
-    msg["From"] = f"Таск-менеджер <{gmail_user}>"
-    msg["To"] = to_email
 
     due_str = f"<br><b>Срок:</b> {due_date}" if due_date else ""
     html = f"""
@@ -33,15 +25,28 @@ def send_email(to_email: str, to_name: str, task_title: str, assigned_by: str, d
       <p style="color: #666; font-size: 12px;">Это автоматическое уведомление.</p>
     </div>
     """
-    msg.attach(MIMEText(html, "html"))
 
-    with smtplib.SMTP_SSL("smtp.gmail.com", 465) as server:
-        server.login(gmail_user, gmail_pass)
-        server.sendmail(gmail_user, to_email, msg.as_string())
-    return True
+    payload = json.dumps({
+        "from": "Задачник <onboarding@resend.dev>",
+        "to": [to_email],
+        "subject": f"Вам назначена задача: {task_title}",
+        "html": html,
+    }).encode()
+
+    req = urllib.request.Request(
+        "https://api.resend.com/emails",
+        data=payload,
+        headers={
+            "Authorization": f"Bearer {api_key}",
+            "Content-Type": "application/json",
+        },
+        method="POST",
+    )
+    with urllib.request.urlopen(req) as resp:
+        return resp.status == 200
 
 def handler(event: dict, context) -> dict:
-    """Отправка email-уведомлений при назначении задачи. Вызывается внутренне."""
+    """Отправка email-уведомлений через Resend при назначении задачи."""
     headers = {
         "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "POST, OPTIONS",
