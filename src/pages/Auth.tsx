@@ -45,8 +45,21 @@ export default function Auth({ onAuth }: Props) {
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
+          <img
+            src="https://cdn.poehali.dev/projects/47894456-eccd-4236-bbf3-c14775d7fbbb/bucket/761c078d-2930-4823-939c-d359d8ce31a2.png"
+            alt="Логотип"
+            className="w-16 h-16 object-contain mx-auto mb-4 grayscale"
+          />
           <h1 className="text-3xl font-bold text-foreground mb-2">Задачник</h1>
           <p className="text-muted-foreground">Управляйте задачами вместе с командой</p>
+        </div>
+
+        <div className="rounded-2xl overflow-hidden mb-6">
+          <img
+            src="https://cdn.poehali.dev/projects/47894456-eccd-4236-bbf3-c14775d7fbbb/bucket/a11ee149-b55a-46a7-b3cc-9432c62fecb4.jpg"
+            alt="А спонсор сегодняшнего дня"
+            className="w-full object-cover max-h-64"
+          />
         </div>
 
         <div className="bg-card border border-border rounded-2xl p-8 shadow-sm">

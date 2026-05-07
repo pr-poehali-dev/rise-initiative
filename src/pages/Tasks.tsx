@@ -80,6 +80,11 @@ export default function Tasks({ user, onLogout }: Props) {
       <header className="bg-card border-b border-border sticky top-0 z-10">
         <div className="max-w-7xl mx-auto px-4 py-4 flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
+            <img
+              src="https://cdn.poehali.dev/projects/47894456-eccd-4236-bbf3-c14775d7fbbb/bucket/761c078d-2930-4823-939c-d359d8ce31a2.png"
+              alt="Логотип"
+              className="w-8 h-8 object-contain grayscale"
+            />
             <h1 className="text-xl font-bold text-foreground">Задачник</h1>
           </div>
           <div className="flex items-center gap-2">
