@@ -96,7 +96,7 @@ export function Calculator() {
   const selectedOffice = officeData.find(d => d.area === selectedOfficeArea)
 
   const tabClass = (type: RoomType) =>
-    `w-full px-5 py-5 text-sm font-medium transition-all rounded-sm text-center border ${
+    `w-full px-3 py-4 text-xs sm:text-sm font-medium transition-all rounded-sm text-center border leading-snug ${
       roomType === type
         ? "bg-primary text-primary-foreground border-primary"
         : "bg-muted text-muted-foreground border-border hover:text-foreground hover:border-foreground"
